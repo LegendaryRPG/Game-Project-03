@@ -28,12 +28,12 @@ public class Enemigo : MonoBehaviour {
 		if (VidaE < VidaEMax) {RegE = true;}
 		if (VidaE <= 0 && MuerteE == true){Instantiate (Efec_Muert,transform.position,transform.rotation);
 			Instantiate (SolItem,transform.position,transform.rotation); Player.Exp += 20; 
-			Destroy (this.gameObject, 1);}
+			DestroyImmediate (this.gameObject);}
 		if (RegE == true) {VidaE += TasCurE * Time.deltaTime;}
 	}
 
 	void OnTriggerEnter (Collider ObjDano) {
-		VidaE -= 20; // Daño Causado por Arma/Skill
+		Player.VPlayer -= 20; // Daño Causado por Arma/Skill
 	}
 
 }

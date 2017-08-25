@@ -12,10 +12,8 @@ public class Habilidades : MonoBehaviour {
 	void Start () {}
 	// Update is called once per frame
 	void Update () {
-		CamHab ();
 		CalExp ();
-		if (IndHab < 28) {IndHab++;}
-		else {IndHab = 0;}
+		CamHab ();
 	}
 
 	void CamHab(){ // Puntos Maximos por habilidad 1000
@@ -105,34 +103,51 @@ public class Habilidades : MonoBehaviour {
 		//int ExpTFF = 200; // Experiencia Total de los 2 ultimos puntos de habilidad de Rango F
 		int ExpIndFF = 100; // Experiencia Individual para los 2 ultimos puntos de habilidad de Rango F
 
-		if ((ExpTA[IndHab] <= ExpTAF) && (ExpTA[IndHab] > ExpIndPF)) {
-			if (ExpTA[IndHab] <= ExpTPF) {Hab[IndHab] = (ExpTA[IndHab] / ExpIndPF);}
-			else {Hab[IndHab] = ((ExpTA[IndHab] / ExpIndPF) + ((ExpTA[IndHab] - ExpTPF) / ExpIndFF));}
-		} //Rango 0-10000
-		else if ((ExpTA[IndHab] <= ExpTAE) && (ExpTA[IndHab] > ExpTAF)) {
-			if (ExpTA[IndHab] <= ExpTPE) {Hab[IndHab] = (ExpTA[IndHab] / ExpIndPE);} 
-			else {Hab[IndHab] = ((ExpTA[IndHab] / ExpIndPE) + ((ExpTA[IndHab] - ExpTPE) / ExpIndFE));}
-		} //Rango 10001-50000
-		else if ((ExpTA[IndHab] <= ExpTAD) && (ExpTA[IndHab] > ExpTAE)) {
-			if (ExpTA[IndHab] <= ExpTPD) {Hab[IndHab] = (ExpTA[IndHab] / ExpIndPD);} 
-			else {Hab[IndHab] = ((ExpTA[IndHab] / ExpIndPD) + ((ExpTA[IndHab] - ExpTPD) / ExpIndFD));}
-		} //Rango 50001-140000
-		else if ((ExpTA[IndHab] <= ExpTAC) && (ExpTA[IndHab] > ExpTAD)) {
-			if (ExpTA[IndHab] <= ExpTPC) {Hab[IndHab] = (ExpTA[IndHab] / ExpIndPC);} 
-			else {Hab[IndHab] = ((ExpTA[IndHab] / ExpIndPC) + ((ExpTA[IndHab] - ExpTPC) / ExpIndFC));}
-		} //Rango 140001-280000
-		else if ((ExpTA[IndHab] <= ExpTAB) && (ExpTA[IndHab] > ExpTAC)) {
-			if (ExpTA[IndHab] <= ExpTPB) {Hab[IndHab] = (ExpTA[IndHab] / ExpIndPB);} 
-			else {Hab[IndHab] = ((ExpTA[IndHab] / ExpIndPB) + ((ExpTA[IndHab] - ExpTPB) / ExpIndFB));}
-		} //Rango 280001-470000
-		else if ((ExpTA[IndHab] <= ExpTAA) && (ExpTA[IndHab] > ExpTAB)) {
-			if (ExpTA[IndHab] <= ExpTPA) {Hab[IndHab] = (ExpTA[IndHab] / ExpIndPA);} 
-			else {Hab[IndHab] = ((ExpTA[IndHab] / ExpIndPA) + ((ExpTA[IndHab] - ExpTPA) / ExpIndFA));}
-		} //Rango 470001-710000
-		else if ((ExpTA[IndHab] <= ExpTAS) && (ExpTA[IndHab] > ExpTAA)) {
-			if (ExpTA[IndHab] <= ExpTPS) {Hab[IndHab] = (ExpTA[IndHab] / ExpIndPS);} 
-			else {Hab[IndHab] = ((ExpTA[IndHab] / ExpIndPS) + ((ExpTA[IndHab] - ExpTPS) / ExpIndFS));}
-		} //Rango 710001-1000000
+		for(IndHab = 0; IndHab < ExpTA.Length; IndHab++){
+		 if ((ExpTA [IndHab] <= ExpTAF) && (ExpTA [IndHab] > ExpIndPF)) {
+				if (ExpTA [IndHab] <= ExpTPF) {Hab [IndHab] = (ExpTA [IndHab] / ExpIndPF);} 
+				else {Hab [IndHab] = ((ExpTA [IndHab] / ExpIndPF) + ((ExpTA [IndHab] - ExpTPF) / ExpIndFF));}
+			} //Rango 0-10000
+		 else if ((ExpTA [IndHab] <= ExpTAE) && (ExpTA [IndHab] > ExpTAF)) {
+				if (ExpTA [IndHab] <= ExpTPE) {
+					Hab [IndHab] = (ExpTA [IndHab] / ExpIndPE);
+				} else {
+					Hab [IndHab] = ((ExpTA [IndHab] / ExpIndPE) + ((ExpTA [IndHab] - ExpTPE) / ExpIndFE));
+				}
+			} //Rango 10001-50000
+		 else if ((ExpTA [IndHab] <= ExpTAD) && (ExpTA [IndHab] > ExpTAE)) {
+				if (ExpTA [IndHab] <= ExpTPD) {
+					Hab [IndHab] = (ExpTA [IndHab] / ExpIndPD);
+				} else {
+					Hab [IndHab] = ((ExpTA [IndHab] / ExpIndPD) + ((ExpTA [IndHab] - ExpTPD) / ExpIndFD));
+				}
+			} //Rango 50001-140000
+		 else if ((ExpTA [IndHab] <= ExpTAC) && (ExpTA [IndHab] > ExpTAD)) {
+				if (ExpTA [IndHab] <= ExpTPC) {
+					Hab [IndHab] = (ExpTA [IndHab] / ExpIndPC);
+				} else {
+					Hab [IndHab] = ((ExpTA [IndHab] / ExpIndPC) + ((ExpTA [IndHab] - ExpTPC) / ExpIndFC));
+				}
+			} //Rango 140001-280000
+		 else if ((ExpTA [IndHab] <= ExpTAB) && (ExpTA [IndHab] > ExpTAC)) {
+				if (ExpTA [IndHab] <= ExpTPB) {
+					Hab [IndHab] = (ExpTA [IndHab] / ExpIndPB);
+				} else {
+					Hab [IndHab] = ((ExpTA [IndHab] / ExpIndPB) + ((ExpTA [IndHab] - ExpTPB) / ExpIndFB));
+				}
+			} //Rango 280001-470000
+		 else if ((ExpTA [IndHab] <= ExpTAA) && (ExpTA [IndHab] > ExpTAB)) {
+				if (ExpTA [IndHab] <= ExpTPA) {
+					Hab [IndHab] = (ExpTA [IndHab] / ExpIndPA);
+				} else {
+					Hab [IndHab] = ((ExpTA [IndHab] / ExpIndPA) + ((ExpTA [IndHab] - ExpTPA) / ExpIndFA));
+				}
+			} //Rango 470001-710000
+		 else if ((ExpTA [IndHab] <= ExpTAS) && (ExpTA [IndHab] > ExpTAA)) {
+				if (ExpTA [IndHab] <= ExpTPS) {Hab [IndHab] = (ExpTA [IndHab] / ExpIndPS);}
+				else {Hab [IndHab] = ((ExpTA [IndHab] / ExpIndPS) + ((ExpTA [IndHab] - ExpTPS) / ExpIndFS));}
+			} //Rango 710001-1000000
+		}//Fin For
 
 		/* Puntos dentro de cada Rango
 		* Rango S (859-999), (1000). 5
