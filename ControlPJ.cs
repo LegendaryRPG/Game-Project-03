@@ -27,4 +27,14 @@ public class ControlPJ : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Q)) {transform.Rotate (new Vector3 (0, -Vel_Rot, 0) * Time.deltaTime);}
 		else if (Input.GetKey (KeyCode.E)) {transform.Rotate (new Vector3(0, Vel_Mov, 0) * Time.deltaTime);}
 	}
+
+	void EspKey(){
+		if (Input.GetKey (KeyCode.Q)) {/*Lanza Cuchillo*/}
+		if (Input.GetKey (KeyCode.F)) {/*Fijar Objetivo/Enemigo*/}
+		if (Input.GetKey (KeyCode.E)) {/*Evento Accion*/}
+		if (Input.GetKey (KeyCode.LeftControl)) {/*Agacharse*/}
+		if (Input.GetKey (KeyCode.LeftShift)) {/*Alternar Caminar/Correr/Sprintar*/}
+		if (Input.GetKey (KeyCode.Mouse0)) {/*Atk primario*/}
+		if (Input.GetKey (KeyCode.Mouse1)) {/*Atk Segundario/Parada/Bloqueo*/}
+		}
 }
